@@ -3,16 +3,16 @@ Este es el archivo README de la práctica 1.
 
 ### Prerequisitos
 Nada todavia...
-‘‘‘
+
 * NLTK
-‘‘‘
+
 
 ### Instalar
 Por ahora solo poner lo de abajo
-‘‘‘python
+```Python
 import nltk
 nltk.download()
-‘‘‘
+```
 
 ## Autor
-* **Oscar Chacón** - *Primera Practica* - [email](oscar.apple10@gmail.com)
+* **Oscar Chacón** - *Primera Practica* - <oscar.apple10@gmail.com>
