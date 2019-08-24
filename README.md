@@ -1,5 +1,5 @@
 # Repositorio Prácticas PLN
-Prácticas de la materia "Procesamiento del Lenguaje Natural" de la Máestría en Sistemas Interactivos Centrados en el Usuario 2019.
+Prácticas de la materia "Procesamiento del Lenguaje Natural" de la Maestría en Sistemas Interactivos Centrados en el Usuario 2019.
 
 ## Contenido
 * Practica 01 - Ejercicios de Python básicos y juego del ahorcado
