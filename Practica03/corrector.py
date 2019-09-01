@@ -11,7 +11,7 @@ from nltk.corpus import stopwords
 from nltk.metrics.distance import edit_distance
 
 data = set()
-l = open("recursos/lemmatization-es.txt","r")
+l = open("recursos/lemmatization-es.txt","r",encoding="utf8")
 lines = l.readlines()
 for line in lines:
     temp = line.rstrip("\n")
@@ -19,7 +19,7 @@ for line in lines:
     data.add(word[0])
     data.add(word[1])
 
-l = open("recursos/listado-general.txt","r")
+l = open("recursos/listado-general.txt","r",encoding="utf8")
 lines = l.readlines()
 for line in lines:
     temp = line.rstrip("\n")
@@ -30,10 +30,10 @@ esTokenizadorOraciones = nltk.data.load('tokenizers/punkt/spanish.pickle')
 stpwds = stopwords.words("spanish")
 puntiaction = ["?", "¿", "¡", "!", " ", ",", ".", ";", ":", "(", ")", "-", "...", "\"", "”", "–", "%", "“", "\n"]
 
-l = open("recursos/corrigeme.txt","r")
+l = open("recursos/corrigeme.txt","r",encoding="utf8")
 contents = l.read()
 oraciones = esTokenizadorOraciones.tokenize(contents)
-ef = open("recursos/corregido.txt","w")
+ef = open("recursos/corregido.txt","w",encoding="utf8")
 for oracion in oraciones:
     corrline = []
     for t in toktok.tokenize(oracion):
