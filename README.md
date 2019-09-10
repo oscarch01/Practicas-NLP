@@ -5,7 +5,7 @@ Prácticas de la materia "Procesamiento del Lenguaje Natural" de la Maestría en
 * Practica 01 - Ejercicios de Python básicos y juego del ahorcado
 * Practica 02 - Juego de los nombres
 * Practica 03 - Frecuencias y distancias entre palabras
-
+* Practica 04 - Algoritmo de PageRank para textos
 
 ### Ejecutar
 Instrucciones en cada carpeta
