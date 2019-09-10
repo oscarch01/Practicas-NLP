@@ -77,8 +77,8 @@ def lematizacionIngenua(tokens):
     return tk
 
 if __name__ == "__main__":
-    #route = input("Escriba la ruta de su archivo a analizar: ")
-    route = "recursos/practica3.txt"
+    route = input("Escriba la ruta de su archivo a analizar: ")
+    #route = "recursos/practica3.txt"
     data = tokenizar(route)
     data2 = removestopwords(data)
     print("Distribución de frecuencias (sin stopwords) para archivo: ", route)
