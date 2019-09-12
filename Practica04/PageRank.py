@@ -108,9 +108,13 @@ class PageRank:
                 sumatoria = 0
                 for e in v.enlaces:
                     sumatoria = sumatoria + (self.nodos.get(e).rank/len(self.nodos.get(e).enlaces))
-                v.rank = sumatoria
+                v.ranknuevo = sumatoria
 
                 #print(k + ' tiene un ranking actual de: '+ str(v.rank))
+
+        for i in range(iteraciones):
+            for k,v in self.nodos.items():
+                v.rank = v.ranknuevo
             
                     
                 
