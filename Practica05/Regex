@@ -1,0 +1,4 @@
+1.- (la|el|los|las)\s[\w\s]+\s(es|son)\s[\w\s]+
+2.- ([\w,]+\s(tal como|por ejemplo|como por ejemplo|tal como:|así como|así como)\s[\w,\s]+)
+3.- ([\w\s]+\s(forma parte (de|del))\s[\w\s]+)
+4.- ([\w\s]+\s(perteneciente|pertenece|pertenecientes|pertenecen)\s[\w\s]+)
