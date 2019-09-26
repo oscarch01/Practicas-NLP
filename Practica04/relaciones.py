@@ -9,7 +9,7 @@ if len(sys.argv)>=2:
     words = sys.argv.copy()
     del words[0]
 
-    f = open('wikipedia_es_abstracts.txt',"r")
+    f = open('wikipedia_es_abstracts.txt',"r",encoding="utf8")
     contents = f.readlines()
     abstractsPassed = ""
     for line in contents:
@@ -21,9 +21,9 @@ if len(sys.argv)>=2:
             abstractsPassed = abstractsPassed + line + "\n"
     
     patron1 = re.compile(r"((la|el|los|las|un|unos|una|unas)\s([á-úü\w]+)\s(es el|es la|es más|es una|es un|es también una|es|son los|son las|son una|son un|fue un|son)\s([á-úü\w]+))")
-    patron2 = re.compile(r"(([\w,]+)\s(tal como|por ejemplo|como por ejemplo|tal como:|así como|así como)\s([\w,\s]+))")
-    patron3 = re.compile(r"(([\w\s]+)\s(forma parte (de|del))\s([\w\s]+))")
-    patron4 = re.compile(r"(([\w\s]+)\s(perteneciente|pertenece|pertenecientes|pertenecen)\s([\w\s]+))")
+    patron2 = re.compile(r"(([á-úü\w]+)\s(tal como|así tambien|así como|como por|por ejemplo|tambien conocida como|tambien conocido como|tal como:|conocida como|como:|como un|como una de los|como uno de los|como una de las|como una|como uno|como)\s([á-úü\w]+))")
+    patron3 = re.compile(r"(([á-úü\w]+)\s(forma parte (de la|del|de))\s([á-úü\w]+))")
+    patron4 = re.compile(r"(([á-úü\w]+)\s(que pertenece|que pertenece al|pertenece|perteneciente al|perteneciente)\s([á-úü\w]+))")
     
     repatron1 = patron1.findall(abstractsPassed)
     repatron2 = patron2.findall(abstractsPassed)
@@ -39,27 +39,29 @@ if len(sys.argv)>=2:
             nodes.append(match[4])
         edges.append((match[2],match[4]))
         
-    # for match in repatron2:
-    #     if match[1] not in nodes:
-    #         nodes.append(match[1])
-    #     if match[3] not in nodes:
-    #         nodes.append(match[3])
-    #     aristas.append((match[1],match[3]))
+    for match in repatron2:
+        if match[1] not in nodes:
+            nodes.append(match[1])
+        if match[3] not in nodes:
+            nodes.append(match[3])
+        edges.append((match[1],match[3]))
 
-    # for match in repatron3:
-    #     if match[1] not in nodes:
-    #         nodes.append(match[1])
-    #     if match[4] not in nodes:
-    #         nodes.append(match[4])
-    #     aristas.append((match[1],match[4]))
+    for match in repatron3:
+        if match[1] not in nodes:
+            nodes.append(match[1])
+        if match[4] not in nodes:
+            nodes.append(match[4])
+        edges.append((match[1],match[4]))
             
-    # for match in repatron4:
-    #     if match[1] not in nodes:
-    #         nodes.append(match[1])
-    #     if match[3] not in nodes:
-    #         nodes.append(match[3])
-    #     aristas.append((match[1],match[3]))
+    for match in repatron4:
+        if match[1] not in nodes:
+            nodes.append(match[1])
+        if match[3] not in nodes:
+            nodes.append(match[3])
+        edges.append((match[1],match[3]))
     
+    print(abstractsPassed)
+    print("---------")
     print(nodes)
     print("---------")
     print(edges)
