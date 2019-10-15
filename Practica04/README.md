@@ -11,4 +11,4 @@ Ejecutar archivo relaciones.py
 ![Screenshot](Figure_1.png) 
 
 ## Autor
-* **Oscar Chacón** - *Segunda Practica* - <oscar.apple10@gmail.com>
+* **Oscar Chacón** - *Cuarta Practica* - <oscar.apple10@gmail.com>

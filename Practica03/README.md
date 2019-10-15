@@ -911,4 +911,4 @@ segundo  =>  14
 ```
 
 ## Autor
-* **Oscar Chacón** - *Segunda Practica* - <oscar.apple10@gmail.com>
+* **Oscar Chacón** - *Tercera Practica* - <oscar.apple10@gmail.com>
