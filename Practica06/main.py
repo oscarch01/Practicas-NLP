@@ -11,8 +11,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 
 from metrics import precision
-from vectorization import vectorizer
+from vectorization import vectorizerV2 as vectorizer
 from vectorization import baselineMajorityClass
+
+import nltk
+from nltk.tokenize.toktok import ToktokTokenizer
 
 df = pd.read_csv('author_corpus.txt',sep='\t',index_col=False,names=["autor","texto"])
 
@@ -20,12 +23,24 @@ df = pd.read_csv('author_corpus.txt',sep='\t',index_col=False,names=["autor","te
 df = df[:][df['autor']!=5]
 
 X_raw = df['texto']
+
+wordsDict = dict()
+
+toktok = ToktokTokenizer()
+tokenizer = nltk.data.load('tokenizers/punkt/spanish.pickle')
+for txt in X_raw:
+    sentences = tokenizer.tokenize(txt)
+    for sentence in sentences:
+        for token in toktok.tokenize(sentence):
+            if token not in wordsDict:
+                wordsDict[token] = 0
+
 X_vectors = np.array([])
 for i in range(len(X_raw)):
     if len(X_vectors) == 0:        
-        X_vectors = vectorizer(X_raw[:].iloc[i])
+        X_vectors = vectorizer(X_raw[:].iloc[i],wordsDict.copy())
     else:
-        X_vectors = np.vstack([X_vectors,vectorizer(X_raw[:].iloc[i])])
+        X_vectors = np.vstack([X_vectors,vectorizer(X_raw[:].iloc[i],wordsDict.copy())])
 
 y = df['autor'].to_numpy()
 X_train, X_test, y_train, y_test = train_test_split(X_vectors,y,test_size=0.3,random_state=101)

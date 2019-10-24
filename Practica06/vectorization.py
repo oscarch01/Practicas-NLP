@@ -36,7 +36,42 @@ def vectorizer(raw_text):
     vector.append(len(sentences))
 
     return np.array(vector)
+
+def vectorizerV2(raw_text,vectorWords):
+    toktok = ToktokTokenizer()
+    tokenizer = nltk.data.load('tokenizers/punkt/spanish.pickle')
+    sentences = tokenizer.tokenize(raw_text)
+
+    vector = []
+
+    counterCommas = 0
+    counterPoints = raw_text.count(".")
+    countersWordsInSentence = []
+    for sentence in sentences:
+        counterCommas += sentence.count(",")
+        countersWordsInSentence.append(len(toktok.tokenize(sentence)))
+        for token in toktok.tokenize(sentence):            
+            vectorWords[token] += 1
     
+    vector.append(counterCommas)
+    vector.append(counterPoints)
+
+    sumatory = 0
+    for counter in countersWordsInSentence:
+        sumatory += counter
+
+    averageWordsInSentence = sumatory/len(countersWordsInSentence)
+
+    vector.append(averageWordsInSentence)
+
+    vector.append(len(sentences))
+
+    for word, count in vectorWords.items():
+        vector.append(count)
+
+    # número de comas | número de puntos | promedio de palabras por oración | número de oraciones | número de veces que aparece una palabra del conjunto completo en el texto ... 
+    return np.array(vector)
+
 def baselineMajorityClass(y_train,lenY_test):
     dictionaryOfCounters = dict()
     for y in y_train:
