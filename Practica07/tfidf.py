@@ -88,7 +88,7 @@ def td_matrix(D):
     collection = []
     for d in normalized_D:
         #For testing
-        print(d)
+        #print(d)
 
         d_vector = []
         for t in vocabulary:
