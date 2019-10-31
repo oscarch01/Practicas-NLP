@@ -9,6 +9,7 @@ Prácticas de la materia "Procesamiento del Lenguaje Natural" de la Maestría en
 * Práctica 04 - Patrones de Hearst
 * Práctica 05 - Similitud Coseno
 * Práctica 06 - Identificación de autores de un texto mediante Regresión Lineal
+* Práctica 07 - SVD y Representaciones sobre corpus de autores
 
 ### Ejecutar
 Instrucciones en cada carpeta

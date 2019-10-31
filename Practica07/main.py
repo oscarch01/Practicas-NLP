@@ -19,7 +19,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.cm
 import seaborn
 
-df = pd.read_csv('author_corpus-test.txt',sep='\t',index_col=False,names=["autor","texto"])
+df = pd.read_csv('author_corpus.txt',sep='\t',index_col=False,names=["autor","texto"])
 
 # Remueve autor 5, que es igual al 4
 df = df[:][df['autor']!=5]
